@@ -24,7 +24,8 @@ namespace SalesApp.SalesApp
             Console.WriteLine("Please pick a menu option:");
             Console.WriteLine("1. Data-Entry");
             Console.WriteLine("2. Reports");
-            Console.WriteLine("3. Quit");
+            Console.WriteLine("3. Delete");
+            Console.WriteLine("4. Quit");
 
             bool inMenu = true;
             while (inMenu)
@@ -84,6 +85,9 @@ namespace SalesApp.SalesApp
                         }
                         break;
                     case 3:
+                        controller.Delete();
+                        break;
+                    case 4:
                         inMenu = false;
                         break;
                 }

@@ -32,7 +32,7 @@ namespace SalesApp.SalesApp
 
             Sale toCreate = new Sale(name, quantity, price, date);
             Sale newSale = services.Create(toCreate);
-            Console.WriteLine($"Created new movie {newSale}");
+            Console.WriteLine($"Created new sale {newSale}");
 
         }
         
@@ -41,27 +41,26 @@ namespace SalesApp.SalesApp
 
 
         //==============DELETE METHOD===============//
-        //-----------delete method is a good idea, might leave this till later
 
-        //public void Delete()
-        //{
-        //    Console.WriteLine("Please enter ID of sale you want to delete:");
-        //    string inputID = Console.ReadLine();
-        //    var remID = int.TryParse(inputID, out int id);
-        //    if (remID)
-        //    {
-        //        try
-        //        {
-        //            services.Delete(id);
-        //        }
-        //        catch (ItemNotFoundException)
-        //        {
-        //            Console.WriteLine($"item with id: {id} does not exist");
-        //        }
+        public void Delete()
+        {
+            Console.WriteLine("Please enter ID of sale you want to delete:");
+            string inputID = Console.ReadLine();
+            var remID = int.TryParse(inputID, out int id);
+            if (remID)
+            {
+                try
+                {
+                    services.Delete(id);
+                }
+                catch (ItemNotFoundException)
+                {
+                    Console.WriteLine($"item with id: {id} does not exist");
+                }
 
-        //    }
+            }
 
-        //}
+        }
 
 
 
