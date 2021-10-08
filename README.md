@@ -25,8 +25,13 @@ o	Total Sales by Year and Month (e.g. The total amount of sales for January of 2
 **IMPORTANT**: 	Some reports would be filtered by the year the user enters, other reports require user to enter a month AND year to filter the reports.
 
 o	Why are we doing this project?
+
 o	How I expected the challenge to go
+
 o	What went well?
+
 o	What did not go as planned?
+
 o	Possible improvements for the future
+
 o	Notable Mentions (i.e. anyone that may have helped/produced valuable input to your project)
