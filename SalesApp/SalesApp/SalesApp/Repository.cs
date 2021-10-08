@@ -10,7 +10,8 @@ using System.IO;
 namespace SalesApp.SalesApp
 {
     class Repository 
-    { 
+    {
+        public MySqlConnection connection { get; }
         public Repository(MySqlConnection mySqlConnection)
         {
             this.connection = mySqlConnection;
