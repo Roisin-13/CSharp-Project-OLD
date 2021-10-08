@@ -1,4 +1,7 @@
 ﻿using System;
+using MySql.Data.MySqlClient;
+
+using System.IO;
 
 namespace SalesApp
 {
