@@ -40,15 +40,17 @@ namespace SalesApp.SalesApp
                 switch (id)
                 {
                     case 1:
-                        Console.WriteLine("Data-Entry");
-                        //controller.Create();
+                        //Console.WriteLine("Data-Entry");
+                        controller.Create();
                         break;
                     case 2:
 
                         Console.WriteLine("Please pick a menu option:");
-                        Console.WriteLine("1. sales by year");
-                        Console.WriteLine("2. sales by month");
-                        Console.WriteLine("3. Quit");
+                        Console.WriteLine("1. list sales by year");
+                        Console.WriteLine("2. list sales by month and year");
+                        Console.WriteLine("3. list sales by year");
+                        Console.WriteLine("4. list sales by month and year");
+                        Console.WriteLine("5. Quit");
                         bool inMenu2 = true;
                         while (inMenu2)
                         {
@@ -63,12 +65,18 @@ namespace SalesApp.SalesApp
                             switch (id2)
                             {
                                 case 1:
-                                    Console.WriteLine("sales by year");
+                                    //Console.WriteLine("sales by year");
                                     break;
                                 case 2:
-                                    Console.WriteLine("sales by month");
+                                    //Console.WriteLine("sales by month");
                                     break;
                                 case 3:
+                                    //Console.WriteLine("sales by year");
+                                    break;
+                                case 4:
+                                    //Console.WriteLine("sales by month");
+                                    break;
+                                case 5:
                                     inMenu2 = false;
                                     break;
 
