@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 using System.IO;
+using SalesApp.Exceptions;
 
 namespace SalesApp.SalesApp
-{
+{/// <summary>
+/// NEED TO FIX DATE TIME ENTRY!!!!!!!!!!!!!
+/// </summary>
     class Controller
     {
         //------linking services with controller
