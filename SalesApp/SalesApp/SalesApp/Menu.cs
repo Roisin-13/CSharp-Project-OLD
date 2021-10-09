@@ -7,7 +7,8 @@ using MySql.Data.MySqlClient;
 
 using System.IO;
 /// <summary>
-/// MENU STUCK IN LOOP, COME BACK TO FIX!!!!!!!!
+/// 08/10--MENU STUCK IN LOOP, COME BACK TO FIX!!!!!!!!
+/// 09/10--half fixed
 /// </summary>
 namespace SalesApp.SalesApp
 {
@@ -26,6 +27,8 @@ namespace SalesApp.SalesApp
         //----(code not added to link with controller yet)
         public void firstMenu()
         {
+            Console.Clear();
+            Console.WriteLine("====MAIN MENU====");
             Console.WriteLine("Please pick a menu option:");
             Console.WriteLine("1. Data-Entry");
             Console.WriteLine("2. Reports");
@@ -35,10 +38,16 @@ namespace SalesApp.SalesApp
             bool inMenu = true;
             while (inMenu)
             {
+                Console.WriteLine();
                 Console.Write("enter number > ");
                 string input = Console.ReadLine();
                 var a = int.TryParse(input, out int id);
                 if (!a)
+                {
+                    Console.WriteLine("Invalid Input");
+                    continue;
+                }
+                if (id >= 5)
                 {
                     Console.WriteLine("Invalid Input");
                     continue;
@@ -56,14 +65,20 @@ namespace SalesApp.SalesApp
                         Console.WriteLine("2. list sales by month and year");
                         Console.WriteLine("3. total sales by year");
                         Console.WriteLine("4. total sales by month and year");
-                        Console.WriteLine("5. Quit");
+                        Console.WriteLine("5. Return to Main Menu");
                         bool inMenu2 = true;
                         while (inMenu2)
                         {
+                            Console.WriteLine();
                             Console.Write("enter number > ");
                             string input2 = Console.ReadLine();
                             var a2 = int.TryParse(input2, out int id2);
                             if (!a2)
+                            {
+                                Console.WriteLine("Invalid Input");
+                                continue;
+                            }
+                            if (id2 >= 6)
                             {
                                 Console.WriteLine("Invalid Input");
                                 continue;
@@ -84,13 +99,15 @@ namespace SalesApp.SalesApp
                                     break;
                                 case 5:
                                     inMenu2 = false;
+                                    firstMenu();
                                     break;
 
                             }
                         }
                         break;
                     case 3:
-                        controller.Delete();
+                        Console.WriteLine("Delete");
+                        //controller.Delete();
                         break;
                     case 4:
                         inMenu = false;
