@@ -11,7 +11,8 @@ namespace SalesApp.SalesApp
 {
     class Repository 
     {
-        public MySqlConnection connection { get; }
+        private readonly MySqlConnection connection;
+        //public MySqlConnection connection { get; }
         public Repository(MySqlConnection mySqlConnection)
         {
             this.connection = mySqlConnection;
@@ -25,9 +26,9 @@ namespace SalesApp.SalesApp
             MySqlCommand command = connection.CreateCommand();
             command.CommandText = "insert into sales(name, quantity, price, date_of_sale) " +
                 "values(@Name, @Quantity, @Price, @Date)";
-            command.Parameters.AddWithValue("@Title", toCreate.Name);
-            command.Parameters.AddWithValue("@Star", toCreate.Quantity);
-            command.Parameters.AddWithValue("@Type", toCreate.Price);
+            command.Parameters.AddWithValue("@Name", toCreate.Name);
+            command.Parameters.AddWithValue("@Quantity", toCreate.Quantity);
+            command.Parameters.AddWithValue("@Price", toCreate.Price);
             command.Parameters.AddWithValue("@Date", toCreate.Date);
             command.Prepare();
             command.ExecuteNonQuery();
@@ -36,41 +37,45 @@ namespace SalesApp.SalesApp
 
             Sale sale = new Sale();
             sale.ID = (int)command.LastInsertedId;
+            sale.Name = toCreate.Name;
+            sale.Quantity = toCreate.Quantity;
+            sale.Price = toCreate.Price;
+            sale.Date = toCreate.Date;
             return sale;
 
         }
 
 
 
-        //===========EXISTS? METHOD===============//
-        //-----used to help delete method, so will not delete if ID is not available
-        internal bool Exists(int id)
-        {
-            connection.Open();
+        ////===========EXISTS? METHOD===============//
+        ////-----used to help delete method, so will not delete if ID is not available
+        //internal bool Exists(int id)
+        //{
+        //    connection.Open();
 
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "select count(*) from sales where id=@id";
-            command.Parameters.AddWithValue("@id", id);
-            command.Prepare();
-            int result = Convert.ToInt32(command.ExecuteScalar());
+        //    MySqlCommand command = connection.CreateCommand();
+        //    command.CommandText = "select count(*) from sales where id=@id";
+        //    command.Parameters.AddWithValue("@id", id);
+        //    command.Prepare();
+        //    int result = Convert.ToInt32(command.ExecuteScalar());
 
-            connection.Close();
+        //    connection.Close();
 
-            return result > 0;
-        }
+        //    return result > 0;
+        //}
 
-        //===========DELETE============//
-        internal void Delete(int id)
-        {
-            connection.Open();
+        ////===========DELETE============//
+        //internal void Delete(int id)
+        //{
+        //    connection.Open();
 
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = $"delete from sales where id={id}";
-            command.ExecuteNonQuery();
+        //    MySqlCommand command = connection.CreateCommand();
+        //    command.CommandText = $"delete from sales where id={id}";
+        //    command.ExecuteNonQuery();
 
-            connection.Close();
+        //    connection.Close();
 
-        }
+        //}
 
 
 
