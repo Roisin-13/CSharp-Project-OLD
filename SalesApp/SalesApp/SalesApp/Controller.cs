@@ -25,7 +25,7 @@ namespace SalesApp.SalesApp
         {
             Console.WriteLine("Please enter Product name:");
             string name = Console.ReadLine();
-            Console.WriteLine("Please enter quantity of pruduct:");
+            Console.WriteLine("Please enter quantity of product:");
             string quantityInput = Console.ReadLine();
             var quantity = int.Parse(quantityInput);
             Console.WriteLine("Please enter price of product (in pounds and pence):");
@@ -33,9 +33,15 @@ namespace SalesApp.SalesApp
             var price = double.Parse(priceInput);
             Console.WriteLine("Please enter date product was purchased:");
             string dateInput = Console.ReadLine();
-            var date = DateTime.ParseExact(dateInput, "d", null);
-
-
+            var a = DateTime.TryParse(dateInput, out DateTime date);
+            if (!a)
+            {
+                date = DateTime.Now;
+            } else
+            {
+                date = DateTime.ParseExact(dateInput, "d", null);
+            }
+ 
             Sale toCreate = new Sale(name, quantity, price, date);
             Sale newSale = services.Create(toCreate);
             Console.WriteLine($"Created new sale {newSale}");
@@ -48,25 +54,25 @@ namespace SalesApp.SalesApp
 
         //==============DELETE METHOD===============//
 
-        public void Delete()
-        {
-            Console.WriteLine("Please enter ID of sale you want to delete:");
-            string inputID = Console.ReadLine();
-            var remID = int.TryParse(inputID, out int id);
-            if (remID)
-            {
-                try
-                {
-                    services.Delete(id);
-                }
-                catch (ItemNotFoundException)
-                {
-                    Console.WriteLine($"item with id: {id} does not exist");
-                }
+        //public void Delete()
+        //{
+        //    Console.WriteLine("Please enter ID of sale you want to delete:");
+        //    string inputID = Console.ReadLine();
+        //    var remID = int.TryParse(inputID, out int id);
+        //    if (remID)
+        //    {
+        //        try
+        //        {
+        //            services.Delete(id);
+        //        }
+        //        catch (ItemNotFoundException)
+        //        {
+        //            Console.WriteLine($"item with id: {id} does not exist");
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
 
 

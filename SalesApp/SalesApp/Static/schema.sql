@@ -1,3 +1,5 @@
+create database if not exists sales;
+use sales;
 create table if not exists sales (
 id int auto_increment,
 name varchar (150) not null,

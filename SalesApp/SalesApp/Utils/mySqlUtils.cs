@@ -20,7 +20,7 @@ namespace SalesApp.Utils
             UserID = "root", 
             Password = "root", 
             Port = 3306, 
-            Database = "movies", 
+            Database = "sales", 
             AllowBatch = true, 
             AllowLoadLocalInfileInPath = "./", 
             AllowLoadLocalInfile = false,

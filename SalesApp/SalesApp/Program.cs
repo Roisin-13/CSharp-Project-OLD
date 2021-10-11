@@ -13,10 +13,24 @@ namespace SalesApp
     {
         static void Main(string[] args)
         {
-            using MySqlConnection connection = mySqlUtils.GetConnection();
+
+            //============ DB connection ===================//
+            //             MySqlConnection connection = mySqlUtils.GetConnection();
+            //connection.Open();
+            ////----connecting to sql file
+            //mySqlUtils.RunSchema(Environment.CurrentDirectory + @"\static\schema.sql", connection);
+            ////---checking connection
+            //bool connectionOpen = connection.Ping();
+            //Console.WriteLine($@"Connection status: {connection.State}
+            //Ping successful: {connectionOpen}
+            //DB version: {connection.ServerVersion}");
+
+            //connection.Dispose();
+
+            MySqlConnection connection = mySqlUtils.GetConnection();
             try
             {
-                
+
                 Menu menu = new Menu(new Controller(
                         new Services(
                             new Repository(connection))));
@@ -25,7 +39,8 @@ namespace SalesApp
             }
             catch (MySqlException)
             {
-                Console.WriteLine("Cannot connect to the server");
+                //--just needed to check exception message REMEMBER TO CHANGE
+                Console.WriteLine("Cannot connect to the server...oh noooo!!!!");
             }
             finally
             {
@@ -34,6 +49,8 @@ namespace SalesApp
                     connection.Dispose();
                 }
             }
+
+
         }
     }
 }

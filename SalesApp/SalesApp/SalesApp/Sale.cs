@@ -15,7 +15,7 @@ namespace SalesApp.SalesApp
         private string name;
         private int quantity;
         private double price;
-        private DateTime date = DateTime.Now; //default date set for now
+        private DateTime date; // = DateTime.Now; //default date set for now
 
         //--------get/set sale name
         public string Name

@@ -29,13 +29,15 @@ namespace SalesApp.SalesApp
 
 
         //===========DELETE============//
-        internal void Delete(int id)
-        {
-            if (!repository.Exists(id))
-            {
-                throw new ItemNotFoundException();
-            }
-            repository.Delete(id);
-        }
+        //internal void Delete(int id)
+        //{
+        //    if (!repository.Exists(id))
+        //    {
+        //        throw new ItemNotFoundException();
+        //    }
+        //    repository.Delete(id);
+        //}
+
+
     }
 }
