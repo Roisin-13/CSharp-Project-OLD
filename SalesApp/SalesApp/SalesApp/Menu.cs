@@ -86,7 +86,8 @@ namespace SalesApp.SalesApp
                             switch (id2)
                             {
                                 case 1:
-                                    Console.WriteLine("list sales by year");
+                                    controller.ReadByYear();
+                                    //Console.WriteLine("list sales by year");
                                     break;
                                 case 2:
                                     Console.WriteLine("list sales by month & year");

@@ -78,8 +78,33 @@ namespace SalesApp.SalesApp
 
         }
 
+        //==============ALL THE READ METHODS===============//
 
+        //-----read by year------//
+        internal IEnumerable<Sale> ReadByYear(int y)
+        {
+            connection.Open();
 
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = $"select * from sales where year(date_of_sale)='{y}'";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            IList<Sale> sales = new List<Sale>();
+            while (reader.Read())
+            {
+                int id = reader.GetFieldValue<int>("id");
+                string name = reader.GetFieldValue<string>("name");
+                int quantity = reader.GetFieldValue<int>("quantity");
+                double price = reader.GetFieldValue<double>("price");    
+                DateTime date = reader.GetFieldValue<DateTime>("date_of_sale"); 
+                Sale sale = new Sale() 
+                { ID = id, Name = name, Quantity = quantity, Price = price, Date = date};
+                sales.Add(sale);
+            }
+
+            connection.Close();
+            return sales;
+        }
 
 
     }

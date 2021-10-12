@@ -72,7 +72,32 @@ namespace SalesApp.SalesApp
             }
            
         }
+        //==============ALL THE READ METHODS===============//
+        //-----read by year------//
+        public void ReadByYear()
+        {
 
+            Console.WriteLine("Please enter Year of items you want to list:");
+            string inputYear = Console.ReadLine();
+            var year = int.TryParse(inputYear, out int y);
+            if (year)
+            {
+                try
+                {
+                    IEnumerable<Sale> sales = services.ReadByYear(y);
+                    foreach (var item in sales)
+                    {
+                        Console.WriteLine(item);
+                    };
+                }
+                catch (ItemNotFoundException)
+                {
+                    Console.WriteLine($"no items from {y} year");
+                }
+
+            }
+
+        }
 
 
 

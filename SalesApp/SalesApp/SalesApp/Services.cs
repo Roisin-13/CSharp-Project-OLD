@@ -38,6 +38,11 @@ namespace SalesApp.SalesApp
             repository.Delete(id);
         }
 
-
+        //==============ALL THE READ METHODS===============//
+        //-----read by year------//
+        internal IEnumerable<Sale> ReadByYear(int y)
+        {
+            return repository.ReadByYear(y);
+        }
     }
 }

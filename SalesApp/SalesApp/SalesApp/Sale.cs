@@ -53,7 +53,7 @@ namespace SalesApp.SalesApp
 
         public override string ToString()
         {
-            return $"Sale ID: {ID}, Name: {name}, Quantity: {quantity}, Price: {price}";
+            return $"Sale ID: {ID}, Name: {name}, Quantity: {quantity}, Price: {price}, Date: {date}";
         }
         public Sale()
         {
