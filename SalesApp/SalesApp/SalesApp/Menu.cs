@@ -106,8 +106,8 @@ namespace SalesApp.SalesApp
                         }
                         break;
                     case 3:
-                        Console.WriteLine("Delete");
-                        //controller.Delete();
+                        //Console.WriteLine("Delete");
+                        controller.Delete();
                         break;
                     case 4:
                         inMenu = false;

@@ -48,35 +48,35 @@ namespace SalesApp.SalesApp
 
 
 
-        ////===========EXISTS? METHOD===============//
-        ////-----used to help delete method, so will not delete if ID is not available
-        //internal bool Exists(int id)
-        //{
-        //    connection.Open();
+        //===========EXISTS? METHOD===============//
+        //-----used to help delete method, so will not delete if ID is not available
+        internal bool Exists(int id)
+        {
+            connection.Open();
 
-        //    MySqlCommand command = connection.CreateCommand();
-        //    command.CommandText = "select count(*) from sales where id=@id";
-        //    command.Parameters.AddWithValue("@id", id);
-        //    command.Prepare();
-        //    int result = Convert.ToInt32(command.ExecuteScalar());
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "select count(*) from sales where id=@id";
+            command.Parameters.AddWithValue("@id", id);
+            command.Prepare();
+            int result = Convert.ToInt32(command.ExecuteScalar());
 
-        //    connection.Close();
+            connection.Close();
 
-        //    return result > 0;
-        //}
+            return result > 0;
+        }
 
-        ////===========DELETE============//
-        //internal void Delete(int id)
-        //{
-        //    connection.Open();
+        //===========DELETE============//
+        internal void Delete(int id)
+        {
+            connection.Open();
 
-        //    MySqlCommand command = connection.CreateCommand();
-        //    command.CommandText = $"delete from sales where id={id}";
-        //    command.ExecuteNonQuery();
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = $"delete from sales where id={id}";
+            command.ExecuteNonQuery();
 
-        //    connection.Close();
+            connection.Close();
 
-        //}
+        }
 
 
 

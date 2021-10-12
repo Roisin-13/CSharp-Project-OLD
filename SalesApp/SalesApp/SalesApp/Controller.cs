@@ -9,9 +9,7 @@ using System.IO;
 using SalesApp.Exceptions;
 
 namespace SalesApp.SalesApp
-{/// <summary>
-/// NEED TO FIX DATE TIME ENTRY!!!!!!!!!!!!!
-/// </summary>
+{
     class Controller
     {
         //------linking services with controller
@@ -47,32 +45,33 @@ namespace SalesApp.SalesApp
             Console.WriteLine($"Created new sale {newSale}");
 
         }
-        
+
 
 
 
 
         //==============DELETE METHOD===============//
 
-        //public void Delete()
-        //{
-        //    Console.WriteLine("Please enter ID of sale you want to delete:");
-        //    string inputID = Console.ReadLine();
-        //    var remID = int.TryParse(inputID, out int id);
-        //    if (remID)
-        //    {
-        //        try
-        //        {
-        //            services.Delete(id);
-        //        }
-        //        catch (ItemNotFoundException)
-        //        {
-        //            Console.WriteLine($"item with id: {id} does not exist");
-        //        }
+        public void Delete()
+        {
+            Console.WriteLine("Please enter ID of sale you want to delete:");
+            string inputID = Console.ReadLine();
+            var remID = int.TryParse(inputID, out int id);
+            if (remID)
+            {
+                try
+                {
+                    services.Delete(id);
+                    Console.WriteLine($"Item with id: {id} deleted");
+                }
+                catch (ItemNotFoundException)
+                {
+                    Console.WriteLine($"item with id: {id} does not exist");
+                }
 
-        //    }
-
-        //}
+            }
+           
+        }
 
 
 
